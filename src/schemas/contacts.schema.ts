@@ -15,7 +15,11 @@ const contactSchemaUpdate = contactSchema.omit({
     id: true
 }).partial()
 
-const contactsArraySchemaResponse = z.array(contactSchema)
+const contactSchemaResponse = contactSchema.extend({
+    createdAt: z.string()
+})
+
+const contactsArraySchemaResponse = z.array(contactSchemaResponse)
 
 
 export {contactSchema,contactSchemaRequest,contactSchemaUpdate,contactsArraySchemaResponse}
