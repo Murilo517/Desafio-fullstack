@@ -26,9 +26,9 @@ const validadeTokenMiddleware = (
     res.locals.userId = decoded.sub;
     req.user = {
       isAdmin: decoded.isAdmin,
-      username: decoded.username
-    }
-    
+      username: decoded.username,
+    };
+
     return next();
   });
 };

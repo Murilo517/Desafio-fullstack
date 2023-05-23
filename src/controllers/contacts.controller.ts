@@ -12,7 +12,7 @@ const createContactController = async (req: Request, res: Response) => {
   return res.status(201).json(newContact);
 };
 
-const listContactsController = async (req: Request, res: Response) => {
+const listContactsByIdController = async (req: Request, res: Response) => {
   const userId: string = res.locals.userId;
 
   const contacts = await listContactsByIdService(userId);
@@ -38,7 +38,7 @@ const deleteContactController = async (req: Request, res: Response) => {
 
 export {
   createContactController,
-  listContactsController,
+  listContactsByIdController,
   updateContactController,
   deleteContactController,
 };

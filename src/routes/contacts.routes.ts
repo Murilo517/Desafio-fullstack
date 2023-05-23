@@ -2,7 +2,7 @@ import { Router } from "express";
 import {
   createContactController,
   deleteContactController,
-  listContactsController,
+  listContactsByIdController,
   updateContactController,
 } from "../controllers/contacts.controller";
 import { validadeTokenMiddleware } from "../middlewares/validateToken.middleware";
@@ -19,7 +19,7 @@ contactsRoutes.post(
   validadeDataMiddleware(contactSchemaRequest),
   createContactController
 );
-contactsRoutes.get("", listContactsController);
+contactsRoutes.get("", listContactsByIdController);
 contactsRoutes.patch("/:id", isContactOwnerMiddleware, validadeDataMiddleware(contactSchemaUpdate), updateContactController);
 contactsRoutes.delete("/:id", isContactOwnerMiddleware,deleteContactController);
 

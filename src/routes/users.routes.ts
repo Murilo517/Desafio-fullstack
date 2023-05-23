@@ -3,6 +3,7 @@ import {
   createUserController,
   deleteUserController,
   listAllUsersController,
+  listUserbyIdController,
   updateUserController,
 } from "../controllers/users.controller";
 import { validadeDataMiddleware } from "../middlewares/validateData.middleware";
@@ -14,7 +15,9 @@ const usersRoutes = Router();
 
 usersRoutes.use(validadeTokenMiddleware);
 
-usersRoutes.get("", validateAdminMiddleware,listAllUsersController);
+usersRoutes.get("", validateAdminMiddleware, listAllUsersController);
+
+usersRoutes.get("/:id", listUserbyIdController)
 
 usersRoutes.post(
   "",

@@ -7,10 +7,6 @@ const validateAdminMiddleware = (
   res: Response,
   next: NextFunction
 ) => {
-
-    console.log(req.user);
-    
-
   if (!req.user.isAdmin) {
     throw new AppError("you need to be an admin to acess here", 403);
   }
@@ -18,4 +14,4 @@ const validateAdminMiddleware = (
   return next();
 };
 
-export {validateAdminMiddleware}
+export { validateAdminMiddleware };
