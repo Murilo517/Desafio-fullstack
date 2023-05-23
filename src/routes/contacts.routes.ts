@@ -20,7 +20,7 @@ contactsRoutes.post(
   createContactController
 );
 contactsRoutes.get("", listContactsController);
-contactsRoutes.patch("", isOwnerMiddleware, validadeDataMiddleware(contactSchemaUpdate), updateContactController);
-contactsRoutes.delete("", isOwnerMiddleware,deleteContactController);
+contactsRoutes.patch("/:id", isOwnerMiddleware, validadeDataMiddleware(contactSchemaUpdate), updateContactController);
+contactsRoutes.delete("/:id", isOwnerMiddleware,deleteContactController);
 
 export { contactsRoutes };

@@ -5,7 +5,7 @@ import { AppError } from "../../errors/AppError";
 import { TContactsArrayResponse } from "../../interfaces/contacts.interfaces";
 import { contactsArraySchemaResponse } from "../../schemas/contacts.schema";
 
-const listContactsById = async (
+const listContactsByIdService = async (
   userId: string
 ): Promise<TContactsArrayResponse> => {
   const contactsRepository = AppDataSource.getRepository(Contact);
@@ -28,4 +28,4 @@ const listContactsById = async (
   return contactsArraySchemaResponse.parse(contacts);
 };
 
-export { listContactsById };
+export { listContactsByIdService };

@@ -9,10 +9,10 @@ class Contact {
   @Column()
   name: string;
 
-  @Column({ unique: true })
+  @Column()
   email: string;
 
-  @Column({unique:true})
+  @Column()
   telephone: string;
 
   @ManyToOne(() => User, user => user.contacts)
