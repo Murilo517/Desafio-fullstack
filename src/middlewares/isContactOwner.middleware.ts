@@ -2,7 +2,7 @@ import {Request,Response, NextFunction} from 'express'
 import { AppDataSource } from '../data-source';
 import { Contact } from '../entities/contact.entitie';
 
-const isOwnerMiddleware = async (req:Request,res:Response, next: NextFunction) =>{
+const isContactOwnerMiddleware = async (req:Request,res:Response, next: NextFunction) =>{
 
     const contactsRepository = AppDataSource.getRepository(Contact);
 
@@ -33,4 +33,4 @@ const isOwnerMiddleware = async (req:Request,res:Response, next: NextFunction) =
     return next()
 }
 
-export {isOwnerMiddleware}
+export {isContactOwnerMiddleware}

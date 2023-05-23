@@ -8,7 +8,7 @@ import {
 import { validadeTokenMiddleware } from "../middlewares/validateToken.middleware";
 import { validadeDataMiddleware } from "../middlewares/validateData.middleware";
 import { contactSchemaRequest, contactSchemaUpdate } from "../schemas/contacts.schema";
-import { isOwnerMiddleware } from "../middlewares/isOwner.middleware";
+import { isContactOwnerMiddleware } from "../middlewares/isContactOwner.middleware";
 
 const contactsRoutes = Router();
 
@@ -20,7 +20,7 @@ contactsRoutes.post(
   createContactController
 );
 contactsRoutes.get("", listContactsController);
-contactsRoutes.patch("/:id", isOwnerMiddleware, validadeDataMiddleware(contactSchemaUpdate), updateContactController);
-contactsRoutes.delete("/:id", isOwnerMiddleware,deleteContactController);
+contactsRoutes.patch("/:id", isContactOwnerMiddleware, validadeDataMiddleware(contactSchemaUpdate), updateContactController);
+contactsRoutes.delete("/:id", isContactOwnerMiddleware,deleteContactController);
 
 export { contactsRoutes };

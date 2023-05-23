@@ -1,5 +1,5 @@
 type TloginRequest = {
-    email: string,
+    username: string,
     password: string
 }
 

@@ -1,19 +1,21 @@
 import { NextFunction, Request, Response } from "express";
 import { AppError } from "../errors/AppError";
+import "dotenv/config";
 
 const validateAdminMiddleware = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  const user = req.body.user;
-  // verificar aqui se é .user ou req.body.user
 
-  if (!user.admin) {
+    console.log(req.user);
+    
+
+  if (!req.user.isAdmin) {
     throw new AppError("you need to be an admin to acess here", 403);
   }
 
   return next();
 };
 
-export default validateAdminMiddleware;
+export {validateAdminMiddleware}

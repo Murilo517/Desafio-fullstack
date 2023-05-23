@@ -16,7 +16,7 @@ const createUserService = async (
 
   const findUser = await userRepository.findOne({
     where: {
-      email: userdata.email
+      email: userdata.email,
     },
   });
   if (findUser) {

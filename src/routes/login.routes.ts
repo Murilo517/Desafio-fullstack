@@ -1,8 +1,8 @@
-import {Router} from "express"
-import { createTokenController } from "../controllers/login.controller"
+import { Router } from "express";
+import { createTokenController } from "../controllers/login.controller";
 
-const loginRoutes = Router()
+const loginRoutes = Router();
 
-loginRoutes.post('',createTokenController)
+loginRoutes.post("", createTokenController);
 
-export {loginRoutes}
+export { loginRoutes };

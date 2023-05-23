@@ -2,11 +2,19 @@ import { Router } from "express";
 import {
   createUserController,
   deleteUserController,
+  listAllUsersController,
+  updateUserController,
 } from "../controllers/users.controller";
 import { validadeDataMiddleware } from "../middlewares/validateData.middleware";
-import { userSchemaRequest } from "../schemas/users.schema";
+import { userSchemaRequest, userUpdateSchema } from "../schemas/users.schema";
+import { validadeTokenMiddleware } from "../middlewares/validateToken.middleware";
+import { validateAdminMiddleware } from "../middlewares/validateAdmin.middleware";
 
 const usersRoutes = Router();
+
+usersRoutes.use(validadeTokenMiddleware);
+
+usersRoutes.get("", validateAdminMiddleware,listAllUsersController);
 
 usersRoutes.post(
   "",
@@ -14,5 +22,10 @@ usersRoutes.post(
   createUserController
 );
 usersRoutes.delete("/:id", deleteUserController);
+usersRoutes.patch(
+  "/:id",
+  validadeDataMiddleware(userUpdateSchema),
+  updateUserController
+);
 
 export { usersRoutes };
