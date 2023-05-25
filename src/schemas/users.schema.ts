@@ -25,6 +25,12 @@ const userUpdateSchema = userSchema.omit({
 }).partial()
 
 
+const returnUserFromTokenSchema = userSchema.omit({
+    password: true,
+    isAdmin: true
+})
+
+
 const usersArraySchemaResponse = z.array(userSchemaResponse)
 
-export{userSchema,userSchemaRequest,userSchemaResponse, usersArraySchemaResponse, userUpdateSchema}
+export{userSchema,userSchemaRequest,userSchemaResponse, usersArraySchemaResponse, userUpdateSchema, returnUserFromTokenSchema}

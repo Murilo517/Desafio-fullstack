@@ -9,6 +9,7 @@ import { deleteUserService } from "../services/users/deleteUser.service";
 import { updateUserService } from "../services/users/updateUser.service";
 import { listAllUsersService } from "../services/users/listAllUsers.service";
 import { listUserByIdService } from "../services/users/listUserById.service";
+import { getUserFromTokenService } from "../services/users/getUserFromTokenService.service";
 
 const createUserController = async (req: Request, res: Response) => {
   const userData: TUserRequest = req.body;
@@ -48,10 +49,25 @@ const deleteUserController = async (req: Request, res: Response) => {
   return res.status(204).send();
 };
 
+const getUserFromTokenController = async (req: Request, res: Response) => {
+  const token = req.headers.authorization?.split(" ")[1];
+  if (!token) {
+    return res.status(401).json({ message: "Token not provided" });
+  }
+
+  try {
+    const user = await getUserFromTokenService(token);
+    return res.json(user);
+  } catch (error) {
+    return res.status(401).json({ message: "Invalid token" });
+  }
+};
+
 export {
   createUserController,
   listAllUsersController,
   listUserbyIdController,
   updateUserController,
   deleteUserController,
+  getUserFromTokenController,
 };

@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
   createUserController,
   deleteUserController,
+  getUserFromTokenController,
   listAllUsersController,
   listUserbyIdController,
   updateUserController,
@@ -20,6 +21,8 @@ usersRoutes.post(
 );
 
 usersRoutes.use(validadeTokenMiddleware);
+
+usersRoutes.get("/data", getUserFromTokenController);
 
 usersRoutes.get("", validateAdminMiddleware, listAllUsersController);
 
