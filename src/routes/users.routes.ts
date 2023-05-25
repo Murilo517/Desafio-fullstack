@@ -13,18 +13,20 @@ import { validateAdminMiddleware } from "../middlewares/validateAdmin.middleware
 
 const usersRoutes = Router();
 
-usersRoutes.use(validadeTokenMiddleware);
-
-usersRoutes.get("", validateAdminMiddleware, listAllUsersController);
-
-usersRoutes.get("/:id", listUserbyIdController)
-
 usersRoutes.post(
   "",
   validadeDataMiddleware(userSchemaRequest),
   createUserController
 );
+
+usersRoutes.use(validadeTokenMiddleware);
+
+usersRoutes.get("", validateAdminMiddleware, listAllUsersController);
+
+usersRoutes.get("/:id", listUserbyIdController);
+
 usersRoutes.delete("/:id", deleteUserController);
+
 usersRoutes.patch(
   "/:id",
   validadeDataMiddleware(userUpdateSchema),
