@@ -15,12 +15,11 @@ class Contact {
   @Column()
   telephone: string;
 
-  @CreateDateColumn({type:'date'})
+  @CreateDateColumn({ type: 'date' })
   createdAt: string;
 
   @ManyToOne(() => User, user => user.contacts)
   user: User;
-
 }
 
 export { Contact };

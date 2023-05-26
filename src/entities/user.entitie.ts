@@ -9,7 +9,7 @@ class User {
   @Column()
   name: string;
 
-  @Column({unique: true})
+  @Column({ unique: true })
   username: string;
 
   @Column({ unique: true })
@@ -24,12 +24,11 @@ class User {
   @Column()
   password: string;
 
-  @CreateDateColumn({type:'date'})
+  @CreateDateColumn({ type: 'date' })
   createdAt: string;
 
-  @OneToMany(() => Contact, contact => contact.user)
+  @OneToMany(() => Contact, contact => contact.user, { onDelete: "CASCADE" })
   contacts: Contact[];
-
 }
 
 export { User };
