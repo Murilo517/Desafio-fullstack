@@ -23,10 +23,11 @@ const validadeTokenMiddleware = (
         message: "invalid token",
       });
     }
-    res.locals.userId = decoded.sub;
+    // res.locals.userId = decoded.sub;
     req.user = {
       isAdmin: decoded.isAdmin,
       username: decoded.username,
+      userId: decoded.sub
     };
 
     return next();

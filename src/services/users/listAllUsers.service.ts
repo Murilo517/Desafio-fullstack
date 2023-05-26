@@ -6,7 +6,11 @@ import { usersArraySchemaResponse } from "../../schemas/users.schema";
 const listAllUsersService = async (): Promise<TUsersArrayResponse> => {
   const usersRepository = AppDataSource.getRepository(User);
 
-  const users: User[] | null = await usersRepository.find();
+  const users: User[] | null = await usersRepository.find({
+    order: {
+      username: "ASC"
+    }
+  });
 
   return usersArraySchemaResponse.parse(users);
 };

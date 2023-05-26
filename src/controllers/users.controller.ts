@@ -50,17 +50,11 @@ const deleteUserController = async (req: Request, res: Response) => {
 };
 
 const getUserFromTokenController = async (req: Request, res: Response) => {
-  const token = req.headers.authorization?.split(" ")[1];
-  if (!token) {
-    return res.status(401).json({ message: "Token not provided" });
-  }
+ 
+  const user =  await getUserFromTokenService(req.user.userId)
 
-  try {
-    const user = await getUserFromTokenService(token);
-    return res.json(user);
-  } catch (error) {
-    return res.status(401).json({ message: "Invalid token" });
-  }
+  return res.json(user)
+
 };
 
 export {
