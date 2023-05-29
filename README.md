@@ -1,4 +1,4 @@
-# Desafio-fullstack
+# Desafio-fullstack-BackEnd
 
 Bem-vindo(a) ao repositório do projeto de Backend desenvolvido em Express.js e TypeScript! Este projeto consiste em uma API poderosa que estabelece a relação com o projeto de Agenda de Contatos, também disponível em meus repositórios.
 
