@@ -7,7 +7,6 @@ import { handleAppErrorMiddleware } from "./middlewares/handleAppError.middlewar
 import { loginRoutes } from "./routes/login.routes";
 import { contactsRoutes } from "./routes/contacts.routes";
 
-
 const app = express();
 
 app.use(express.json());

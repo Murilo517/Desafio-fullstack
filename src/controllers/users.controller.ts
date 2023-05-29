@@ -9,7 +9,7 @@ import { deleteUserService } from "../services/users/deleteUser.service";
 import { updateUserService } from "../services/users/updateUser.service";
 import { listAllUsersService } from "../services/users/listAllUsers.service";
 import { listUserByIdService } from "../services/users/listUserById.service";
-import { getUserFromTokenService } from "../services/users/getUserFromTokenService.service";
+import { getUserFromTokenService } from "../services/users/getUserFromToken.service";
 
 const createUserController = async (req: Request, res: Response) => {
   const userData: TUserRequest = req.body;

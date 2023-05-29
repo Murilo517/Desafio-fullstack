@@ -27,7 +27,7 @@ class User {
   @CreateDateColumn({ type: 'date' })
   createdAt: string;
 
-  @OneToMany(() => Contact, contact => contact.user, { onDelete: "CASCADE" })
+  @OneToMany(() => Contact, contact => contact.user)
   contacts: Contact[];
 }
 
