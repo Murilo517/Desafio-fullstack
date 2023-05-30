@@ -11,3 +11,5 @@ Para acessar a documentação da API, você pode clicar no seguinte link: https:
 Nesta documentação, você encontrará informações sobre os endpoints disponíveis, parâmetros de requisição, estrutura das respostas e exemplos de uso. É um recurso valioso para entender como utilizar a API em meu projeto de Agenda de Contatos.
 
 Fique à vontade para explorar o repositório, testar a API em seu ambiente local e integrá-la ao projeto de Agenda de Contatos. Aproveite os benefícios oferecidos por esta API robusta, desenvolvida com as melhores práticas em Express.js e TypeScript.
+
+Utilize o comando "yarn dev" para rodar a aplicação.
